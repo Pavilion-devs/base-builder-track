@@ -1,26 +1,114 @@
 @import "tailwindcss";
 
+/* Google Fonts - Inter (primary) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap');
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
 @theme inline {
+  /* Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Typography */
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --font-display: Geist, ui-sans-serif, system-ui;
+  --font-mono: var(--font-geist-mono);
+  --font-montserrat: Montserrat, sans-serif;
+
+  /* Border Radius - MAZERA Style */
+  --radius-card: 28px;
+  --radius-button: 6px;
+
+  /* Border Width */
+  --border-heavy: 8px;
+  --border-medium: 4px;
+  --border-regular: 2px;
+
+  /* Shadows - Neobrutalism */
+  --shadow-brutal: 5px 5px 0px #000000;
+  --shadow-brutal-lg: 8px 8px 0px #000000;
+  --shadow-brutal-sm: 3px 3px 0px #000000;
+  --shadow-brutal-white: 5px 5px 0px rgba(255, 255, 255, 0.2);
+
+  /* Animations */
+  --animate-marquee: marquee-left 80s linear infinite;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* MAZERA Animations */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-left 80s linear infinite;
+  will-change: transform;
+}
+
+/* Neobrutalism Utilities */
+.shadow-brutal {
+  box-shadow: 5px 5px 0px #000000;
+}
+
+.shadow-brutal-lg {
+  box-shadow: 8px 8px 0px #000000;
+}
+
+.shadow-brutal-sm {
+  box-shadow: 3px 3px 0px #000000;
+}
+
+.shadow-brutal-white {
+  box-shadow: 5px 5px 0px rgba(255, 255, 255, 0.2);
+}
+
+/* Border Utilities */
+.border-heavy {
+  border-width: 8px;
+}
+
+.border-card {
+  border-radius: 28px;
+}
+
+/* Hover Effects */
+.brutal-hover {
+  transition: all 0.3s ease;
+}
+
+.brutal-hover:hover {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+/* Image Hover */
+.image-hover {
+  transition: transform 0.3s ease-out;
+}
+
+.image-hover:hover {
+  transform: scale(1.05);
+}
+
+/* Modal Backdrop */
+.modal-backdrop {
+  backdrop-filter: blur(20px);
 }
