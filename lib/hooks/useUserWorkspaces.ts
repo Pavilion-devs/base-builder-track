@@ -67,7 +67,7 @@ export function useUserWorkspaces() {
       address,
       name,
       description,
-      treasury: treasury.toString(),
+      treasury: (Number(treasury) / 1e18).toFixed(6),
       taskCount: Number(taskCount),
       memberCount: members.length,
       activeTasks: 0, // TODO: Calculate from task statuses
