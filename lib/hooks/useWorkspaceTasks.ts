@@ -84,7 +84,7 @@ export function useWorkspaceTasks(workspaceAddress: string) {
     ? tasksData
         .filter((result) => result.status === 'success' && result.result)
         .map((result) => {
-          const task = result.result as BlockchainTask;
+          const task = result.result as unknown as BlockchainTask;
           const hasAssignee = task.assignee !== '0x0000000000000000000000000000000000000000';
 
           return {

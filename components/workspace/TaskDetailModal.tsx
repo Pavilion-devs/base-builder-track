@@ -38,7 +38,8 @@ const statusConfig = {
   assigned: { label: 'Assigned', variant: 'info' as const },
   in_progress: { label: 'In Progress', variant: 'warning' as const },
   submitted: { label: 'Submitted', variant: 'warning' as const },
-  completed: { label: 'Completed', variant: 'neutral' as const }
+  completed: { label: 'Completed', variant: 'neutral' as const },
+  cancelled: { label: 'Cancelled', variant: 'neutral' as const }
 };
 
 const TaskDetailModal: React.FC<TaskDetailModalProps> = ({

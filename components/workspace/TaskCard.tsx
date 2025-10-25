@@ -4,7 +4,7 @@ import React from 'react';
 import { User } from 'lucide-react';
 import { Card, Badge } from '@/components/ui';
 
-export type TaskStatus = 'open' | 'assigned' | 'in_progress' | 'submitted' | 'completed';
+export type TaskStatus = 'open' | 'assigned' | 'in_progress' | 'submitted' | 'completed' | 'cancelled';
 
 export interface TaskCardProps {
   id: string;
@@ -25,7 +25,8 @@ const statusConfig = {
   assigned: { label: 'Assigned', variant: 'info' as const },
   in_progress: { label: 'In Progress', variant: 'warning' as const },
   submitted: { label: 'Submitted', variant: 'warning' as const },
-  completed: { label: 'Completed', variant: 'neutral' as const }
+  completed: { label: 'Completed', variant: 'neutral' as const },
+  cancelled: { label: 'Cancelled', variant: 'neutral' as const }
 };
 
 const TaskCard: React.FC<TaskCardProps> = ({
