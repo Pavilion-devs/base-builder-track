@@ -98,13 +98,6 @@ export const WORKSPACE_ABI = [
   },
   {
     type: 'function',
-    name: 'getMemberCount',
-    stateMutability: 'view',
-    inputs: [],
-    outputs: [{ name: '', type: 'uint256' }]
-  },
-  {
-    type: 'function',
     name: 'getBalance',
     stateMutability: 'view',
     inputs: [],

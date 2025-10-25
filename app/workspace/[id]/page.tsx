@@ -47,11 +47,13 @@ export default function WorkspacePage() {
     functionName: 'description',
   });
 
-  const { data: memberCount } = useReadContract({
+  const { data: memberAddresses } = useReadContract({
     address: workspaceAddress as `0x${string}`,
     abi: WORKSPACE_ABI,
-    functionName: 'getMemberCount',
+    functionName: 'getMembers',
   });
+
+  const memberCount = memberAddresses ? (memberAddresses as string[]).length : 0;
 
   const { data: taskCount } = useReadContract({
     address: workspaceAddress as `0x${string}`,
@@ -177,7 +179,7 @@ export default function WorkspacePage() {
             <div className="flex items-center gap-6 text-sm text-neutral-600">
               <div className="flex items-center gap-2">
                 <Users className="w-4 h-4" />
-                <span>{memberCount?.toString() || '0'} members</span>
+                <span>{memberCount} {memberCount === 1 ? 'member' : 'members'}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Wallet className="w-4 h-4" />
@@ -237,7 +239,7 @@ export default function WorkspacePage() {
               <div className="p-6">
                 <div className="text-sm text-neutral-600 tracking-tight mb-2">Team Members</div>
                 <div className="text-2xl font-bold tracking-tight">
-                  {memberCount?.toString() || '0'}
+                  {memberCount}
                 </div>
               </div>
             </Card>
